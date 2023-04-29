@@ -104,6 +104,32 @@ namespace ViajesTerrestres
                     $"{losViajes[i].CantidadPasajeros}\n" +
                     $"Conductor: {losViajes[i].Conductor}");
             }
+
+            //Aqui visualizamos los viajes por Conductor
+            int[] viajesPorConductor = TotalizaViajesPorConductor(losViajes, losConductores);
+            Console.WriteLine("\nLos viajes por conductor fueron:");
+
+            for (int i = 0; i < losConductores.Length; i++)
+            {
+                Console.WriteLine($"Conductor: {losConductores[i]}, Total viajes: " +
+                    $"{viajesPorConductor[i]}");
+            }
+        }
+
+        static int[] TotalizaViajesPorConductor(Viaje[] losViajes, string[] losConductores)
+        {
+            int[] totalesViajes = new int[losConductores.Length];
+
+            for (int i = 0; i < losViajes.Length; i++)
+            {
+                for (int j = 0; j < losConductores.Length; j++)
+                {
+                    if (losViajes[i].Conductor == losConductores[j])
+                        totalesViajes[j]++;
+                }
+            }
+
+            return totalesViajes;
         }
     }
 }
