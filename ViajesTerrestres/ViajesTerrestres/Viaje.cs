@@ -3,7 +3,7 @@
     public class Viaje
     {
         //Los atributos
-        private string destino, diaSemana;
+        private string destino, diaSemana, conductor;
         private int cantidadPasajeros;
 
         //El constructor de la clase
@@ -11,6 +11,7 @@
         {
             destino = string.Empty;
             diaSemana = string.Empty;
+            conductor = string.Empty;
             cantidadPasajeros = 0;
         }
 
@@ -25,6 +26,12 @@
         {
             get { return diaSemana; }
             set { diaSemana = value; }
+        }
+
+        public string Conductor
+        {
+            get { return conductor; }
+            set { conductor = value; }
         }
 
         public int CantidadPasajeros

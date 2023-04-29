@@ -33,6 +33,10 @@ namespace ViajesTerrestres
                                         "Sàbado",
                                         "Domingo"};
 
+            string[] losConductores = {
+                        "Juan Rodas"
+            };
+
             Console.WriteLine("Ingresa los destinos de los viajes");
 
             int cantidadDestinos = 5;
@@ -86,6 +90,7 @@ namespace ViajesTerrestres
                 losViajes[i].DiaSemana = losDiasSemana[aleatorio.Next(losDiasSemana.Length)];
                 losViajes[i].Destino = losDestinos[aleatorio.Next(losDestinos.Length)];
                 losViajes[i].CantidadPasajeros = aleatorio.Next(5, 41);
+                losViajes[i].Conductor = losConductores[aleatorio.Next(losConductores.Length)];
             }
 
             //Aqui visualizamos los viajes generados
@@ -96,7 +101,8 @@ namespace ViajesTerrestres
                 Console.WriteLine($"\nViaje No. {i+1}");
                 Console.WriteLine($"Dia de la semana: {losViajes[i].DiaSemana}, " +
                     $"Destino: {losViajes[i].Destino}, Cantidad Pasajeros: " +
-                    $"{losViajes[i].CantidadPasajeros}");
+                    $"{losViajes[i].CantidadPasajeros}\n" +
+                    $"Conductor: {losViajes[i].Conductor}");
             }
         }
     }
