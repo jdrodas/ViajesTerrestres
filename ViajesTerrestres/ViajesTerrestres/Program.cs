@@ -130,6 +130,56 @@ namespace ViajesTerrestres
 
             Console.WriteLine($"\nEl primer día de la semana menos viajado fue: {diaMenosViajado}");
 
+            //Aqui visualizamos los viajes por destino
+            int[] totalViajesPorDestino = TotalizaViajesPorDestino(losViajes, losDestinos);
+            Console.WriteLine("\nLos viajes por destinos fueron:");
+
+            for (int i = 0; i < losDestinos.Length; i++)
+            {
+                Console.WriteLine($"Día: {losDestinos[i]}, Total viajes: " +
+                    $"{totalViajesPorDestino[i]}");
+            }
+
+            string destinoMasViajado = ObtieneDestinoMasViajado(losViajes, losDestinos);
+
+            Console.WriteLine($"\nEl primer destino más viajado fue: {destinoMasViajado}");
+
+
+        }
+
+        static int[] TotalizaViajesPorDestino(Viaje[] losViajes, string[] losDestinos)
+        {
+            int[] viajesPorDestino = new int[losDestinos.Length];
+
+            for (int i = 0; i < losViajes.Length; i++)
+            {
+                for (int j = 0; j < losDestinos.Length; j++)
+                {
+                    if (losViajes[i].Destino == losDestinos[j])
+                        viajesPorDestino[j]++;
+                }
+            }
+
+            return viajesPorDestino;
+        }
+
+        static string ObtieneDestinoMasViajado(Viaje[] losViajes, string[] losDestinos)
+        {
+            int[] viajesPorDestino = TotalizaViajesPorDestino(losViajes, losDestinos);
+
+            int posicionDestinoMayor = 0;
+            int viajesMayores = viajesPorDestino[posicionDestinoMayor];
+
+            for (int i = 1; i < viajesPorDestino.Length; i++)
+            {
+                if (viajesPorDestino[i] > viajesMayores)
+                {
+                    viajesMayores = viajesPorDestino[i];
+                    posicionDestinoMayor = i;
+                }
+            }
+
+            return losDestinos[posicionDestinoMayor];
         }
 
         static int[] TotalizaViajesPorDia(Viaje[] losViajes, string[] losDias)
