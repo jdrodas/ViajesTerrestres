@@ -98,7 +98,7 @@ namespace ViajesTerrestres
 
             for (int i = 0; i < losViajes.Length; i++)
             {
-                Console.WriteLine($"\nViaje No. {i+1}");
+                Console.WriteLine($"\nViaje No. {i + 1}");
                 Console.WriteLine($"Dia de la semana: {losViajes[i].DiaSemana}, " +
                     $"Destino: {losViajes[i].Destino}, Cantidad Pasajeros: " +
                     $"{losViajes[i].CantidadPasajeros}\n" +
@@ -114,7 +114,59 @@ namespace ViajesTerrestres
                 Console.WriteLine($"Conductor: {losConductores[i]}, Total viajes: " +
                     $"{viajesPorConductor[i]}");
             }
+
+
+            //Aqui visualizamos los viajes por día de la semana
+            int[] totalViajesPorDia = TotalizaViajesPorDia(losViajes, losDiasSemana);
+            Console.WriteLine("\nLos viajes por dia fueron:");
+
+            for (int i = 0; i < losDiasSemana.Length; i++)
+            {
+                Console.WriteLine($"Día: {losDiasSemana[i]}, Total viajes: " +
+                    $"{totalViajesPorDia[i]}");
+            }
+
+            string diaMenosViajado = ObtieneDiaMenosViajado(losViajes, losDiasSemana);
+
+            Console.WriteLine($"\nEl primer día de la semana menos viajado fue: {diaMenosViajado}");
+
         }
+
+        static int[] TotalizaViajesPorDia(Viaje[] losViajes, string[] losDias)
+        {
+            int[] viajesPorDia = new int[losDias.Length];
+
+            for (int i = 0; i < losViajes.Length; i++)
+            {
+                for (int j = 0; j < losDias.Length; j++)
+                {
+                    if (losViajes[i].DiaSemana == losDias[j])
+                        viajesPorDia[j]++;
+                }
+            }
+
+            return viajesPorDia;
+        }
+
+        static string ObtieneDiaMenosViajado(Viaje[] losViajes, string[] losDias)
+        {
+            int[] viajesPorDia = TotalizaViajesPorDia(losViajes, losDias);
+
+            int posicionDiaMenor = 0;
+            int viajesMenores = viajesPorDia[posicionDiaMenor];
+
+            for (int i = 1; i < viajesPorDia.Length; i++)
+            {
+                if (viajesPorDia[i] < viajesMenores)
+                {
+                    viajesMenores = viajesPorDia[i];
+                    posicionDiaMenor = i;
+                }
+            }
+
+            return losDias[posicionDiaMenor];
+        }
+
 
         static int[] TotalizaViajesPorConductor(Viaje[] losViajes, string[] losConductores)
         {
