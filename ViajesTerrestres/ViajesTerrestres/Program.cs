@@ -35,8 +35,9 @@ namespace ViajesTerrestres
 
             string[] losConductores = {
                         "Juan Rodas", 
-                        "Gustavo Lora"
-                        "David Barros"
+                        "Gustavo Lora",
+                        "David Barros",
+                        "Nicolás Correa"
             };
 
             Console.WriteLine("Ingresa los destinos de los viajes");
