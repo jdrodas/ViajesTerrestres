@@ -38,6 +38,7 @@ namespace ViajesTerrestres
                         "Gustavo Lora",
                         "David Barros",
                         "Nicolás Correa"
+                        "Juan Builes"
             };
 
             Console.WriteLine("Ingresa los destinos de los viajes");
