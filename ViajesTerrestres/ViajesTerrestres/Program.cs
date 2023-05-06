@@ -39,6 +39,7 @@ namespace ViajesTerrestres
                         "David Barros",
                         "Nicolás Correa"
                         "Juan Builes"
+                        "Mariana Florez"
             };
 
             Console.WriteLine("Ingresa los destinos de los viajes");
