@@ -140,12 +140,15 @@ namespace ViajesTerrestres
 
             //Aqui visualizamos los viajes por destino
             int[] totalViajesPorDestino = TotalizaViajesPorDestino(losViajes, losDestinos);
+            int[] totalPasajerosPorDestino = TotalizaPasajerosPorDestino(losViajes, losDestinos);
+
             Console.WriteLine("\nLos viajes por destinos fueron:");
 
             for (int i = 0; i < losDestinos.Length; i++)
             {
-                Console.WriteLine($"Día: {losDestinos[i]}, Total viajes: " +
-                    $"{totalViajesPorDestino[i]}");
+                Console.WriteLine($"Destino: {losDestinos[i]}, Total viajes: " +
+                    $"{totalViajesPorDestino[i]}, cantidad pasajeros: " +
+                    $"{totalPasajerosPorDestino[i]}");
             }
 
             string destinoMasViajado = ObtieneDestinoMasViajado(losViajes, losDestinos);
@@ -169,6 +172,22 @@ namespace ViajesTerrestres
             }
 
             return viajesPorDestino;
+        }
+
+        static int[] TotalizaPasajerosPorDestino(Viaje[] losViajes, string[] losDestinos)
+        {
+            int[] PasajerosPorDestino = new int[losDestinos.Length];
+
+            for (int i = 0; i < losViajes.Length; i++)
+            {
+                for (int j = 0; j < losDestinos.Length; j++)
+                {
+                    if (losViajes[i].Destino == losDestinos[j])
+                        PasajerosPorDestino[j]+=losViajes[i].CantidadPasajeros;
+                }
+            }
+
+            return PasajerosPorDestino;
         }
 
         static string ObtieneDestinoMasViajado(Viaje[] losViajes, string[] losDestinos)
@@ -224,7 +243,6 @@ namespace ViajesTerrestres
 
             return losDias[posicionDiaMenor];
         }
-
 
         static int[] TotalizaViajesPorConductor(Viaje[] losViajes, string[] losConductores)
         {
