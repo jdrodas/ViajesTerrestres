@@ -41,6 +41,7 @@ namespace ViajesTerrestres
                         "Juan Builes",
                         "Mariana Florez",
                         "Alexander Zuluaga",
+                        "Tomas Mejia"
             };
 
             Console.WriteLine("Ingresa los destinos de los viajes");
