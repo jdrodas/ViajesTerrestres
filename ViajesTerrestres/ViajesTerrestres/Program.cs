@@ -37,9 +37,10 @@ namespace ViajesTerrestres
                         "Juan Rodas", 
                         "Gustavo Lora",
                         "David Barros",
-                        "Nicolás Correa"
-                        "Juan Builes"
-                        "Mariana Florez"
+                        "Nicolás Correa",
+                        "Juan Builes",
+                        "Mariana Florez",
+                        "Alexander Zuluaga",
             };
 
             Console.WriteLine("Ingresa los destinos de los viajes");
