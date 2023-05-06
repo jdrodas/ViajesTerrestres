@@ -159,7 +159,7 @@ namespace ViajesTerrestres
 
         }
 
-        static int[] TotalizaViajesPorDestino(Viaje[] losViajes, string[] losDestinos)
+        public static int[] TotalizaViajesPorDestino(Viaje[] losViajes, string[] losDestinos)
         {
             int[] viajesPorDestino = new int[losDestinos.Length];
 
@@ -175,7 +175,7 @@ namespace ViajesTerrestres
             return viajesPorDestino;
         }
 
-        static int[] TotalizaPasajerosPorDestino(Viaje[] losViajes, string[] losDestinos)
+        public static int[] TotalizaPasajerosPorDestino(Viaje[] losViajes, string[] losDestinos)
         {
             int[] PasajerosPorDestino = new int[losDestinos.Length];
 
@@ -210,7 +210,7 @@ namespace ViajesTerrestres
             return losDestinos[posicionDestinoMayor];
         }
 
-        static int[] TotalizaViajesPorDia(Viaje[] losViajes, string[] losDias)
+        public static int[] TotalizaViajesPorDia(Viaje[] losViajes, string[] losDias)
         {
             int[] viajesPorDia = new int[losDias.Length];
 
